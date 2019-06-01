@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class HaloController {
     @RequestMapping("/halo")
     public Object sayHalo() {
-        System.out.println("halo");
+        System.out.println("halo 你好");
 
-        return "halo spring boot";
+        return "halo spring boot 你好";
     }
 }
