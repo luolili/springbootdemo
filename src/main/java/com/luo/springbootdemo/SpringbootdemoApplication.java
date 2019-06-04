@@ -2,14 +2,12 @@ package com.luo.springbootdemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 // open the task
-@EnableScheduling
+//@EnableScheduling
 //open asyn task
-@EnableAsync
+//@EnableAsync
 /**
  * spring -> springboot ->springcloud
  * new feature:

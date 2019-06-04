@@ -1,4 +1,4 @@
-package com.luo.springbootdemo.pojo;
+package com.example.firstdemo.pojo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;

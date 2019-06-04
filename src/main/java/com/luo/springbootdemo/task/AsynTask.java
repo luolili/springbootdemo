@@ -1,8 +1,6 @@
 package com.luo.springbootdemo.task;
 
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
-import org.springframework.stereotype.Component;
 
 import java.util.concurrent.Future;
 
@@ -12,10 +10,10 @@ import java.util.concurrent.Future;
  * scene:
  * email/instant message
  */
-@Component
+//@Component
 public class AsynTask {
 
-    @Async
+    //@Async
     public Future<Boolean> doTask01() throws Exception {
         long start = System.currentTimeMillis();
         Thread.sleep(1000);
@@ -26,7 +24,7 @@ public class AsynTask {
 
     }
 
-    @Async
+    //@Async
     public Future<Boolean> doTask02() throws Exception {
         long start = System.currentTimeMillis();
         Thread.sleep(600);
@@ -37,7 +35,7 @@ public class AsynTask {
 
     }
 
-    @Async
+    //@Async
     public Future<Boolean> doTask03() throws Exception {
         long start = System.currentTimeMillis();
         Thread.sleep(500);
