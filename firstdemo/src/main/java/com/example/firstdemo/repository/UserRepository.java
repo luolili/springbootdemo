@@ -3,6 +3,7 @@ package com.example.firstdemo.repository;
 import com.example.firstdemo.pojo.User;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -29,5 +30,11 @@ public class UserRepository {
         user.setId(id);
         repository.put(id, user);
         return repository.put(id, user) == null;
+    }
+
+    public Collection<User> findAll() {
+
+        Collection<User> users = repository.values();
+        return users;
     }
 }
