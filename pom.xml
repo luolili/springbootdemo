@@ -5,7 +5,8 @@
 	<!--added module of parent -->
 	<modules>
 		<module>web</module>
-	</modules>
+        <module>programmatictransaction</module>
+    </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
