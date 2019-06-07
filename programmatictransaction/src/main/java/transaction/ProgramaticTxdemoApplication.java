@@ -10,6 +10,13 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallbackWithoutResult;
 import org.springframework.transaction.support.TransactionTemplate;
 
+/**
+ * step:
+ * 1.autowire TransactionTemplate
+ * 2. invoke its execute, this method param:TransactionCallbackWithoutResult
+ * 3. autowire JdbcTemplate
+ * 4. invoke its execute to perform the sql
+ */
 @SpringBootApplication
 @Slf4j
 

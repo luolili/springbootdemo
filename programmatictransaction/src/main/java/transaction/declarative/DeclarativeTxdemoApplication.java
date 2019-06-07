@@ -7,6 +7,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+/**
+ * 1. interface and its impl
+ * 2. add @Transaction on impl method
+ * 3. specify every method rollbackFor exception
+ * 4. autowire the interface and jdbcTemplate
+ * 5. invoke the method in interface and use jdbcTemplate to execute sql
+ */
 @SpringBootApplication
 @Slf4j
 
