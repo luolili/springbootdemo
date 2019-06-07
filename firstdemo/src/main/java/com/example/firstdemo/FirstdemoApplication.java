@@ -18,7 +18,7 @@ import java.sql.SQLException;
 @Slf4j
 public class FirstdemoApplication implements CommandLineRunner {
 
-    //config dataSource
+    //config single dataSource
     @Autowired
     private DataSource dataSource;
 
