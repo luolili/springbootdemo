@@ -7,6 +7,8 @@
 		<module>web</module>
         <module>programmatictransaction</module>
         <module>springjpademo</module>
+        <module>springmybatis</module>
+        <module>springmybatisgeneratordemo</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
