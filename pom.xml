@@ -10,6 +10,9 @@
         <module>springmybatis</module>
         <module>springmybatisgeneratordemo</module>
         <module>springmybatisgeneratordemo</module>
+		<module>springaspectdemo</module>
+		<module>springmvcdemo</module>
+		<module>springhierachymvcdemo</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
