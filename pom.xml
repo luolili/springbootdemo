@@ -13,6 +13,7 @@
 		<module>springaspectdemo</module>
 		<module>springmvcdemo</module>
 		<module>springhierachymvcdemo</module>
+		<module>json-view-demo</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>

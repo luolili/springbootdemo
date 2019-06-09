@@ -1,6 +1,5 @@
-package springmvcdemo.model;
+package springbucks.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,7 +15,8 @@ import java.util.Date;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties(value = {"hibernateLazyInitializer"})
+//no need
+//@JsonIgnoreProperties(value = {"hibernateLazyInitializer"})
 public class BaseEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
