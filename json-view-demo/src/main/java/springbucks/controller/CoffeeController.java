@@ -106,4 +106,10 @@ public class CoffeeController {
 
     }
 
+    @GetMapping("/{id}")
+    public Coffee getById(@PathVariable Long id) {
+        Coffee coffee = coffeeService.getCoffee(id);
+        log.info("Coffee {}:", coffee);
+        return coffee;
+    }
 }
