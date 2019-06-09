@@ -1,6 +1,7 @@
 package springmvcdemo.service;
 
 import lombok.extern.slf4j.Slf4j;
+import org.joda.money.Money;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
@@ -31,4 +32,7 @@ public class CoffeeService {
         return coffeeRepository.findByName(name);
     }
 
+    public Coffee saveCoffee(String name, Money price) {
+        return coffeeRepository.save(Coffee.builder().name(name).price(price).build());
+    }
 }
