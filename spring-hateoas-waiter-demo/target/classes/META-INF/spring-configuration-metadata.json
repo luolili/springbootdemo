@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "com.luo",
+      "type": "com.luo.springbootdemo.pojo.Resource",
+      "sourceType": "com.luo.springbootdemo.pojo.Resource"
+    }
+  ],
+  "properties": [
+    {
+      "name": "com.luo.password",
+      "type": "java.lang.String",
+      "sourceType": "com.luo.springbootdemo.pojo.Resource"
+    },
+    {
+      "name": "com.luo.username",
+      "type": "java.lang.String",
+      "sourceType": "com.luo.springbootdemo.pojo.Resource"
+    }
+  ],
+  "hints": []
+}
