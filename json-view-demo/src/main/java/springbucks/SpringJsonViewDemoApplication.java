@@ -36,7 +36,7 @@ public class SpringJsonViewDemoApplication {
 
     //json output beautify
     public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer() {
-        
+
         return Builder -> Builder.indentOutput(true);
     }
 }
