@@ -15,6 +15,7 @@
 		<module>springhierachymvcdemo</module>
 		<module>json-view-demo</module>
         <module>spring-restTemplate-demo</module>
+        <module>spring-hateoas-dmeo</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
