@@ -80,5 +80,6 @@ public class SpringRestTemplateDemoApplication implements ApplicationRunner {
         log.info("String :{}", s);
 
 
+
     }
 }

@@ -40,6 +40,7 @@ public class SpringMyBatisDemoApplcation implements ApplicationRunner {
         log.info("Save {} Coffee: {}", count, c);
 
         c = coffeeMapper.findById(c.getId());
+        //add Lombok
         log.info("Find Coffee: {}", c);
 
     }
