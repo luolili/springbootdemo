@@ -18,6 +18,9 @@ import org.springframework.web.client.RestTemplate;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * hateoas client
+ */
 @SpringBootApplication
 @Slf4j
 public class SpringHateoasCustomerDemoApplication {
