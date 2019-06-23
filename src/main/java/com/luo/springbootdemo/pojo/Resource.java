@@ -1,4 +1,4 @@
-package com.webflux.waiterdemo.springbootdemo.pojo;
+package com.luo.springbootdemo.pojo;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
