@@ -1,6 +1,6 @@
-package com.webflux.waiterdemo.repo;
+package com.example.springwebfluxwaiterdemo.luo.repo;
 
-import com.webflux.waiterdemo.model.Coffee;
+import com.example.springwebfluxwaiterdemo.luo.model.Coffee;
 import org.springframework.data.r2dbc.repository.R2dbcRepository;
 import org.springframework.data.r2dbc.repository.query.Query;
 import reactor.core.publisher.Mono;

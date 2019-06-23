@@ -1,10 +1,9 @@
-package com.webflux.waiterdemo.service;
+package com.example.springwebfluxwaiterdemo.luo.service;
 
-import com.webflux.waiterdemo.model.Coffee;
-import com.webflux.waiterdemo.model.CoffeeOrder;
-import com.webflux.waiterdemo.model.OrderState;
-import com.webflux.waiterdemo.repo.CoffeeOrderRepo;
-import com.webflux.waiterdemo.repo.CoffeeRepo;
+import com.example.springwebfluxwaiterdemo.luo.model.CoffeeOrder;
+import com.example.springwebfluxwaiterdemo.luo.model.OrderState;
+import com.example.springwebfluxwaiterdemo.luo.repo.CoffeeOrderRepo;
+import com.example.springwebfluxwaiterdemo.luo.repo.CoffeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;

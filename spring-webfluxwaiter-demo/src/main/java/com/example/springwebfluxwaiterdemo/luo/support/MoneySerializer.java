@@ -1,4 +1,4 @@
-package com.webflux.waiterdemo.support;
+package com.example.springwebfluxwaiterdemo.luo.support;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;

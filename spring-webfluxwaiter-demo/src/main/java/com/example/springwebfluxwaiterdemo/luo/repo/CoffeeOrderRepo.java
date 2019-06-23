@@ -1,8 +1,8 @@
-package com.webflux.waiterdemo.repo;
+package com.example.springwebfluxwaiterdemo.luo.repo;
 
-import com.webflux.waiterdemo.model.Coffee;
-import com.webflux.waiterdemo.model.CoffeeOrder;
-import com.webflux.waiterdemo.model.OrderState;
+import com.example.springwebfluxwaiterdemo.luo.model.Coffee;
+import com.example.springwebfluxwaiterdemo.luo.model.CoffeeOrder;
+import com.example.springwebfluxwaiterdemo.luo.model.OrderState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.r2dbc.core.DatabaseClient;
 import org.springframework.stereotype.Repository;
@@ -36,7 +36,7 @@ public class CoffeeOrderRepo {
                 .flatMap(
                         o ->
                                 databaseClient.execute()
-                                        .sql("select * from t_coffee c, t_order oc" +
+                                        .sql("select c.* from t_coffee c, t_order oc" +
                                                 "where c.id = oc.items_id and oc.coffee_order_id = " + id)
                                         .as(Coffee.class)
                                         .fetch()

@@ -1,17 +1,17 @@
-package com.webflux.waiterdemo.model;
+package com.example.springwebfluxwaiterdemo.luo.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.joda.money.Money;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
-@Table(name = "t_coffee")
+@Table("t_coffee")
 @Data
 @Builder
 @NoArgsConstructor
