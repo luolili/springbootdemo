@@ -1,15 +1,18 @@
-package com.luo.springbootdemo.pojo;
+package com.webflux.waiterdemo.springbootdemo.pojo;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
 
 /**
  * read property value from properties file
  * properties map to the entity
  */
+@Component//add it for ConfigurationProperties
 @Configuration
-@ConfigurationProperties(prefix = "com.luo")//prefix
+//@ConfigurationProperties(prefix = "com.luo")//prefix
+@ConfigurationProperties(prefix = "com.luo")
 //@PropertySource("classpath:resource.properties")
 @PropertySource(value = "classpath:resource.properties")
 public class Resource {
