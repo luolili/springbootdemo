@@ -60,7 +60,9 @@ public class SpringJpaDemoApplication implements ApplicationRunner {
                 .price(Money.of(CurrencyUnit.of("CNY"), 20.0))
                 .build();
 
-        coffeeRepository02.save(latte);
+        latte.setId(null);//这样设置无效
+        coffeeRepository02.save(latte);//这里依然是有值的
+
 
         log.info("Coffee: {}", latte);
 

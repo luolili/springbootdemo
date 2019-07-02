@@ -2,6 +2,7 @@ package springbucks.jpademo.model;
 
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -15,8 +16,14 @@ import java.util.Date;
 @Data
 public class BaseEntity implements Serializable {
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(
+            generator = "system-uuid"
+    )
+    @GenericGenerator(
+            name = "system-uuid",
+            strategy = "uuid"
+    )
+    private String id;
     @Column(updatable = false)
     @CreationTimestamp
     private Date createTime;
