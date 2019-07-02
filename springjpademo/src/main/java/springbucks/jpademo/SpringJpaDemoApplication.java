@@ -28,12 +28,13 @@ import java.util.stream.Collectors;
 //open tx
 @EnableTransactionManagement
 /**
+ * note:
  * 我们都知道，使用save方法保存实体的时候JAP会根据主键判断是新增(主键为空或者数据库表中无该主键)还是更新(数据库表中有该主键)。
  * 而且，
  * 在使用这种如上配置的时候无论实体的主键是否为空，只要在表中不存在，都会再次生成主键，也就是没办法通过给id属性赋值的形式来自定义实体的id。
+ * https://www.jianshu.com/p/db5f10b546df
  */
 public class SpringJpaDemoApplication implements ApplicationRunner {
-
 
    /* @Autowired
     private CoffeeRepository coffeeRepository;
