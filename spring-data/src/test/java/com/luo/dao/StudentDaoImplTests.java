@@ -24,4 +24,15 @@ public class StudentDaoImplTests {
         }
 
     }
+
+    @Test
+    public void testSave() {
+        StudentDao studentDao = new StudentDaoImpl();
+        Student s = new Student();
+        s.setName("gh");
+        s.setAge(33);
+
+        studentDao.save(s);
+
+    }
 }

@@ -47,9 +47,31 @@ public class StudentDaoImpl implements StudentDao {
             e.printStackTrace();
         } finally {
             JDBCUtils.release(resultSet, ps, connection);
-
         }
 
         return students;
     }
+
+    @Override
+    public void save(Student student) {
+        Connection connection = null;
+        PreparedStatement ps = null;
+
+        String sql = "insert into student(name, age)  values(?,?) ";
+        ResultSet resultSet = null;
+        try {
+            connection = JDBCUtils.getConnection();
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, student.getName());
+
+            ps.setInt(2, student.getAge());
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.release(resultSet, ps, connection);
+        }
+
+    }
+
 }
