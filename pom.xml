@@ -16,6 +16,7 @@
 		<module>json-view-demo</module>
         <module>spring-restTemplate-demo</module>
         <module>spring-hateoas-waiter-demo</module>
+        <module>spring-data</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
