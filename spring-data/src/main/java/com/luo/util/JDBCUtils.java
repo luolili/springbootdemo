@@ -31,17 +31,30 @@ public class JDBCUtils {
         return connection;
     }
 
-    public static void release(ResultSet resultSet, Statement statement, Connection connection) throws SQLException {
+    public static void release(ResultSet resultSet, Statement statement, Connection connection) {
+        //这里必须tc否则在调用这个方法的时候，还需要处理异常
         if (resultSet != null) {
-            resultSet.close();
+            try {
+                resultSet.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
         if (statement != null) {
-            statement.close();
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
         if (connection != null) {
-            connection.close();
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
