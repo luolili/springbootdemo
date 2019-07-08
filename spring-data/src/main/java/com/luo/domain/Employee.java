@@ -22,7 +22,7 @@ public class Employee {
 
     private Integer age;
     //会更新列，保留原来的数据
-    @NotEmpty
+    @NotEmpty//这个注解不能让数据库里面的字段设置为not null
     private String email;
 
 
