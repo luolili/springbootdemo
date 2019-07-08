@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
+@Table(name = "T_EMP")//这里虽然大写，但生成的表名仍然是小写
 @Entity
 @Data
 public class Employee {
@@ -27,8 +28,6 @@ public class Employee {
     //会更新列，保留原来的数据
     @NotEmpty//这个注解不能让数据库里面的字段设置为not null
     private String email;
-
-
 
 
 }
