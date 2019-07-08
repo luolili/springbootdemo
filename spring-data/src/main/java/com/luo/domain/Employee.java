@@ -29,5 +29,7 @@ public class Employee {
     @NotEmpty//这个注解不能让数据库里面的字段设置为not null
     private String email;
 
+    //private String conTaskId;//注释掉他，在数据库不会删除这个字段
+
 
 }
