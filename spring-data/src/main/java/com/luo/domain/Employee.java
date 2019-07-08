@@ -1,45 +1,31 @@
 package com.luo.domain;
 
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
-
+@Data
 public class Employee {
-
-    private Integer id;
-
-    private String name;
-
-    private Integer age;
 
     @GeneratedValue
     @Id
-    public Integer getId() {
-        return id;
-    }
+    private Integer id;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    @Column(length = 12)
+    @NotEmpty
+    private String name;
 
-    //必须先删除原来的表
-    @Column(length = 22)//指定字符串的长度
-    public String getName() {
-        return name;
-    }
+    private Integer age;
+    //会更新列，保留原来的数据
+    @NotEmpty
+    private String email;
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public Integer getAge() {
-        return age;
-    }
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
+
 }

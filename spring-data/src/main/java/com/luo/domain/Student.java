@@ -1,5 +1,8 @@
 package com.luo.domain;
 
+import lombok.Data;
+
+@Data
 public class Student {
     private int id;
 
@@ -7,27 +10,8 @@ public class Student {
 
     private int age;
 
-    public int getId() {
-        return id;
-    }
+    //增加的字段，测试hibernate能否更新这各表
+    private String email;
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 }
