@@ -2,17 +2,20 @@ package com.luo.domain;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Data
 public class Employee {
 
-    @GeneratedValue
+    /**
+     * @GeneratedValue 默认用的是oracle的自增主键，还会生成hibernate_sequence这张表
+     * <prop key="hibernate.id.new_generator_mappings">false</prop>
+     * 用IDENTITY就只有一张表生成，也是先了主键自增
+     */
+    //@GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Integer id;
 
