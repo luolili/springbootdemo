@@ -11,6 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class EmployeeRepositoryTests {
 
@@ -163,5 +164,17 @@ public class EmployeeRepositoryTests {
     @Test
     public void testUpdate() {
         employeeService.update(1, 9);
+    }
+
+    @Test
+    public void testUpdate01() {
+        Optional<Employee> re = employeeRepository.findById(1);
+
+        Employee e = re.get();
+        e.setAge(11);
+        e.setEmail("ere");
+        employeeRepository.save(e);
+
+
     }
 }
