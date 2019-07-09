@@ -11,4 +11,5 @@ public interface StudentDao {
     List<Student> query();
 
     void save(Student student);
+    //void update(Student student);
 }

@@ -30,6 +30,8 @@ public class Employee {
     private String email;
 
     //private String conTaskId;//注释掉他，在数据库不会删除这个字段
+    @JoinColumn(name = "userId", nullable = false)
+    private String userId;
 
 
 }

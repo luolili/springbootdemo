@@ -46,6 +46,7 @@ public class StudentDaoImpl02 implements StudentDao {
         jdbcTemplate.update(sql, new Object[]{student.getName(), student.getAge()});
     }
 
+
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
