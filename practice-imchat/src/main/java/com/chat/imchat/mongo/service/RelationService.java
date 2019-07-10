@@ -56,7 +56,7 @@ public class RelationService {
     }
 
     //获取好友列表
-    private List<User> listFriend(String username) {
+    public List<User> listFriend(String username) {
         //准备一个空的好友对象列表
         List<User> users = new ArrayList<>();
         //好友的名字列表
@@ -73,4 +73,6 @@ public class RelationService {
 
         return users;
     }
+
+
 }

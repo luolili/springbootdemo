@@ -7,6 +7,7 @@ import com.chat.imchat.mongo.model.User;
 import com.chat.imchat.mongo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Controller;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 
@@ -14,6 +15,9 @@ import java.security.Principal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * 发送消息
+ */
 @Controller
 public class ChatController {
 
@@ -43,6 +47,7 @@ public class ChatController {
 
     }
 
+    @Async
     public void send(BaseMessage baseMessage) {
         baseMessage.setDate(new Date());
         ChatMessage chatMessage = this.createMessage(baseMessage.getSender(), baseMessage.getContext());
@@ -55,17 +60,13 @@ public class ChatController {
     private ChatMessage createMessage(String username, String message) {
         ChatMessage chatMessage = new ChatMessage();
         chatMessage.setUsername(username);
-
         User user = userService.getByUsername(username);
-
         chatMessage.setAvatar(user.getAvatar());
-
         chatMessage.setNickname(user.getNickname());
 
         chatMessage.setContent(message);
         chatMessage.setSendTime(simpleDateFormat.format(new Date()));
         return chatMessage;
-
 
     }
 
