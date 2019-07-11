@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 常用接口
+ *    常用接口
  */
 @RestController
 @RequestMapping("/api/common")
