@@ -1,6 +1,7 @@
 package com.luo.repo;
 
 import com.luo.domain.Employee;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
@@ -27,8 +28,8 @@ import java.util.List;
  * 缺点：方法名太长+复杂的查询无法解决
  * 使用@Query
  */
-@RepositoryDefinition(domainClass = Employee.class, idClass = Integer.class)//不用extends方法，用注解方法
-public interface EmployeeRepository //extends Repository<Employee, Integer>
+//@RepositoryDefinition(domainClass = Employee.class, idClass = Integer.class)//不用extends方法，用注解方法
+public interface EmployeeRepository extends JpaRepository<Employee, Integer>
 {
 
     @Query("select e from Employee  e where id = (select max(id) from Employee) ")
