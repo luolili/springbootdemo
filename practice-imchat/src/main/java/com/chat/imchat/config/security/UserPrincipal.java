@@ -5,6 +5,9 @@ import org.springframework.security.core.userdetails.User;
 
 import java.util.Collection;
 
+/**
+ * 通过继承spring的User 对自己的User做安全验证
+ */
 public class UserPrincipal extends User {
 
     private static final long serialVersionUID = -4735218819792872573L;

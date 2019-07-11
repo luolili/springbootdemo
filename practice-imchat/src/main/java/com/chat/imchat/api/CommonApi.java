@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * 常用接口
+ */
 @RestController
 @RequestMapping("/api/common")
 public class CommonApi {
@@ -24,6 +27,7 @@ public class CommonApi {
     private RelationService relationService;
 
 
+    //从HttpServletRequest 里面获取表单里面的属性值
     @PostMapping("/register")
     public boolean register(HttpServletRequest request) {
         String username = request.getParameter("username");

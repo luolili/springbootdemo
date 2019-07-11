@@ -31,7 +31,7 @@ public class ChatController {
     private UserService userService;
 
 
-    //Principal from java.security
+    //Principal from java.security：发送消息到dest
     @MessageMapping("/all")
     public void all(Principal principal, String message) {
         ChatMessage chatMessage = this.createMessage(principal.getName(), message);
@@ -47,12 +47,11 @@ public class ChatController {
 
     }
 
+    //发送消息到接受者,dest
     @Async
     public void send(BaseMessage baseMessage) {
         baseMessage.setDate(new Date());
         ChatMessage chatMessage = this.createMessage(baseMessage.getSender(), baseMessage.getContext());
-
-
         simpMessageTemplate.convertAndSendToUser(baseMessage.getReceiver(), "/topic/chat", JSON.toJSONString(chatMessage));
 
     }
