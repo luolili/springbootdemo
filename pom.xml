@@ -17,6 +17,7 @@
         <module>spring-restTemplate-demo</module>
         <module>spring-hateoas-waiter-demo</module>
         <module>spring-data</module>
+        <module>mybatis-plus</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
