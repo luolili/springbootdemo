@@ -10,10 +10,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.convert.CustomConversions;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.data.r2dbc.config.AbstractR2dbcConfiguration;
 import org.springframework.data.r2dbc.convert.R2dbcCustomConversions;
 import org.springframework.data.r2dbc.dialect.Dialect;
-import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories;
 
 import java.util.Arrays;
 import java.util.TimeZone;
@@ -22,7 +22,8 @@ import java.util.TimeZone;
  * Hello world!
  */
 @SpringBootApplication
-@EnableR2dbcRepositories
+//@EnableR2dbcRepositories
+@EnableMongoRepositories
 public class SpringWebfluxwaiterDemoApplication extends AbstractR2dbcConfiguration {
     public static void main(String[] args) {
         SpringApplication.run(SpringWebfluxwaiterDemoApplication.class, args);
