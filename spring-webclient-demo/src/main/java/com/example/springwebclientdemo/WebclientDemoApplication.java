@@ -1,26 +1,13 @@
 package com.example.springwebclientdemo;
 
+import com.example.springwebclientdemo.api.IUserApi;
 import com.example.springwebclientdemo.model.Coffee;
+import com.example.springwebclientdemo.proxy.JDKProxyCreator;
+import com.example.springwebclientdemo.proxy.ProxyCreator;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.money.CurrencyUnit;
 import org.joda.money.Money;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.*;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
-import reactor.core.scheduler.Schedulers;
-
-import java.util.concurrent.CountDownLatch;
-
-/**
- * reactive to access web resource
- */
-import lombok.extern.slf4j.Slf4j;
-import org.joda.money.CurrencyUnit;
-import org.joda.money.Money;
+import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -35,6 +22,10 @@ import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
 import java.util.concurrent.CountDownLatch;
+
+/**
+ * reactive to access web resource
+ */
 
 @SpringBootApplication
 @Slf4j
@@ -91,5 +82,27 @@ public class WebclientDemoApplication implements ApplicationRunner {
                 .bodyToFlux(Coffee.class)
                 .toStream()
                 .forEach(c -> log.info("Coffee in List: {}", c));
+    }
+
+    //-------
+    @Bean
+    ProxyCreator jdkProxyCreator() {
+        return new JDKProxyCreator();
+    }
+
+    @Bean
+    FactoryBean<IUserApi> userApiFactoryBean(ProxyCreator proxyCreator) {
+        return new FactoryBean<IUserApi>() {
+            //返回代理对象
+            @Override
+            public IUserApi getObject() throws Exception {
+                return (IUserApi) proxyCreator.createProxy(this.getObjectType());
+            }
+
+            @Override
+            public Class<?> getObjectType() {
+                return IUserApi.class;
+            }
+        };
     }
 }

@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+/**
+ * 模式1：RequestMapping
+ * 模式2：RouterFunction
+ */
 @Slf4j
 @RestController
 @RequestMapping("user")
