@@ -14,13 +14,17 @@ public class WebclientRestHandler implements RestHandler {
     @Override
     public Object invokeRest(MethodInfo methodInfo) {
         Object res = null;
-        this.webClient.method(methodInfo.getMethod())
+        WebClient.ResponseSpec spec = this.webClient.method(methodInfo.getMethod())
                 .uri(methodInfo.getUrl())
                 .accept(MediaType.APPLICATION_JSON)
-                .retrieve()
+                .retrieve();
 
-        ;
+        if (methodInfo.isReturnFlux()) {
+            res = spec.bodyToFlux(methodInfo.getReturnElementType());
+        } else {
+            res = spec.bodyToMono(methodInfo.getReturnElementType());
+        }
 
-        return null;
+        return res;
     }
 }
