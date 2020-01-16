@@ -14,7 +14,7 @@
 		<module>json-view-demo</module>
         <module>spring-restTemplate-demo</module>
         <module>spring-data</module>
-        <module>spring-wenflux-client</module>
+        <module>spring-boot-mybatis-plus</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>

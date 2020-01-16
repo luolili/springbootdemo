@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: user-service
+  datasource:
+    url: jdbc:mysql://127.0.0.1/springcloud-mall?serverTimezone=UTC&characterEncoding=utf-8&userSSL=false
+    username: root
+    password: 123
+    driver-class-name: com.mysql.jdbc.Driver
+logging:
+  level:
+    root: warn
+    com.luo.mp.mapper: trace
+  pattern:
+    console: '%p%m%n'
