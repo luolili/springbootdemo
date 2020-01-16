@@ -15,3 +15,6 @@ logging:
     com.luo.mp.mapper: trace
   pattern:
     console: '%p%m%n'
+mybatis-plus:
+  mapper-locations:
+    - com/luo/mp/mapper/*
