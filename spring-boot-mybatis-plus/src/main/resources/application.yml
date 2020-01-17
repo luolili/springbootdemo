@@ -5,16 +5,25 @@ spring:
   application:
     name: user-service
   datasource:
-    url: jdbc:mysql://127.0.0.1/springcloud-mall?serverTimezone=UTC&characterEncoding=utf-8&userSSL=false
+    #url: jdbc:mysql://127.0.0.1/springcloud-mall?serverTimezone=UTC&characterEncoding=utf-8&userSSL=false
+    url: jdbc:p6spy:mysql://127.0.0.1/springcloud-mall?serverTimezone=UTC&characterEncoding=utf-8&userSSL=false
     username: root
     password: 123
-    driver-class-name: com.mysql.jdbc.Driver
+    #driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
 logging:
   level:
     root: warn
     com.luo.mp.mapper: trace
   pattern:
     console: '%p%m%n'
+#mybatis-plus:
+#  mapper-locations:
+#逻辑删除
 mybatis-plus:
-  mapper-locations:
-    - com/luo/mp/mapper/*
+  global-config:
+    db-config:
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+    sql-parser-cache: true # 过滤sql 的配置
+#    - com/luo/mp/mapper/*

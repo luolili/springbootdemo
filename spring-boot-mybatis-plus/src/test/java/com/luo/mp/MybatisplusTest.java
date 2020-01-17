@@ -2,9 +2,12 @@ package com.luo.mp;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.additional.query.impl.LambdaQueryChainWrapper;
+import com.luo.mp.config.MPConfig;
 import com.luo.mp.mapper.UserMapper;
 import com.luo.mp.pojo.User;
 import org.junit.Assert;
@@ -27,6 +30,8 @@ public class MybatisplusTest {
 
     @Test
     public void list() {
+        //要先建一个 user_2020的表，否则报错
+        MPConfig.tableNameThreadLocal.set("user_2020");
         List<User> users = userMapper.selectList(null);
         Assert.assertEquals(4, users.size());
 
@@ -195,4 +200,18 @@ public class MybatisplusTest {
         //List<User> users = userMapper.selectList(wrapper);
         //users.stream().forEach(System.out::println);
     }
+
+    @Test
+    public void selectByPage() {
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+        //in
+        wrapper.in("liked_num", Arrays.asList(1, 11));
+        Page<User> page = new Page<>(1, 1);
+        IPage<User> iPage = userMapper.selectPage(page, wrapper);
+        //List<User> users = userMapper.selectList(wrapper);
+        //users.stream().forEach(System.out::println);
+        System.out.println("total pages" + iPage.getPages());
+        System.out.println("total size" + iPage.getTotal());
+    }
+
 }
