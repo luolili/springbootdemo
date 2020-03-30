@@ -18,6 +18,11 @@
             <artifactId>beetl-framework-starter</artifactId>
             <version>1.1.22.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>19.0</version>
+        </dependency>
     </dependencies>
 
 </project>
