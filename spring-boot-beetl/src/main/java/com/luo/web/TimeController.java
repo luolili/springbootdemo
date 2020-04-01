@@ -14,6 +14,8 @@ import java.util.Date;
 
 /**
  * time 的传递问题
+ * post测试必须在 Header里面加Content-Type application/json
+ * RequestBody Text:必须 用{"name":"yy"}
  */
 @Controller
 @RequestMapping("time")

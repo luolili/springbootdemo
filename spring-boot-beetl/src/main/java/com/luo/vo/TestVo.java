@@ -9,7 +9,6 @@ import java.util.Date;
 public class TestVo implements Serializable {
 
     public Date time;
-
     public TestVo() {
 
     }
