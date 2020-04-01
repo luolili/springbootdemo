@@ -39,8 +39,8 @@ public class IndexController {
     @GetMapping("/rate")
     public String rateLimit() {
         if (!rateLimiter.tryAcquire()) {
-            return "false";
+            return "index.btl";
         }
-        return "";
+        return "index.btl";
     }
 }
