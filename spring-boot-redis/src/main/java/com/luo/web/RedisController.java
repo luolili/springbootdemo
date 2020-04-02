@@ -46,6 +46,27 @@ public class RedisController {
         articleService.sortByLikedNum();
     }
 
+    @GetMapping("distinct")
+    public void distinct() {
+        articleService.distinctIP();
+    }
+
+    @GetMapping("shared")
+    public void sharedFriend() {
+        articleService.getSharedFriends();
+    }
+
+    // keys 会导致 redis 暂时被锁住，数据大的时候会有问题
+    @GetMapping("scan")
+    public void scan() {
+        articleService.scan();
+    }
+
+    //活跃用户:适用于2^32 -1 int 的范围的用户量
+    @GetMapping("active")
+    public void activeUser() {
+        articleService.activeUser();
+    }
     private User getUser() {
         User user = new User();
         user.setId(1L);
