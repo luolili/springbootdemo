@@ -109,7 +109,6 @@ public class ArticleService {
     public void activeUser() {
         final String ACTIVE_USER = "active_user";
         Integer userId = new Random().nextInt(10);
-
         redisTemplate.opsForValue().setBit(ACTIVE_USER, userId, true);
         //  统计
         RedisConnection connection = redisTemplate.getConnectionFactory().getConnection();

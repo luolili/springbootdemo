@@ -17,6 +17,7 @@
         <module>spring-boot-mybatis-plus</module>
         <module>spring-boot-beetl</module>
         <module>spring-boot-redis</module>
+        <module>spring-boot-pay</module>
     </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
