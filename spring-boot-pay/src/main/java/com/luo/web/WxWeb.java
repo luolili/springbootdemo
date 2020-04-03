@@ -37,13 +37,18 @@ public class WxWeb {
 
     // 扫描成功后，进入该接口
     @RequestMapping("/user/callback")
-    public Result wxcallback(@RequestParam String code, @RequestParam String state, HttpServletResponse resp) throws Exception {
+    public Result wxcallback(@RequestParam String code, @RequestParam String state,
+                             HttpServletResponse resp) throws Exception {
         User user = userService.saveUserFromWx(code);
         if (user != null) {
             //jwt
             String token = JWTUtil.genJWT(user);
             //跳转到本网站的页面
-            resp.sendRedirect(state + "?token" + token + "&head_img=" + user.getHeadImg() + "&nickname=" + user.getName());
+            String name = user.getName();
+            name = URLEncoder.encode(name, "UTF-8");
+            //state 需要加http://
+            resp.sendRedirect(state + "?token=" + token + "&head_img="
+                    + user.getHeadImg() + "&nickname=" + name);
         }
 
 
