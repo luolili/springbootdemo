@@ -23,4 +23,11 @@ public class WechatConfig {
     public String openAppsecret;
     @Value("${wxopen.redirect_url}")
     public String openRedirecturl;
+
+    @Value("${wxpay.key}")
+    public String key;
+    @Value("${wxpay.mch_id}")
+    public String mchId;
+    @Value("${wxpay.callback}")
+    public String callbackUrl;
 }

@@ -11,6 +11,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginInterceptor())
+                //要拦截的接口路径
                 .addPathPatterns("/user/api/**");
         WebMvcConfigurer.super.addInterceptors(registry);
     }
