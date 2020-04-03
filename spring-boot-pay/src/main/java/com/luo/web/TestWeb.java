@@ -3,6 +3,7 @@ package com.luo.web;
 import com.luo.config.WechatConfig;
 import com.luo.domain.Video;
 import com.luo.service.VideoService;
+import com.luo.util.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,15 +33,17 @@ public class TestWeb {
     }
 
     @RequestMapping("detail")
-    public Video detail(int id) {
-
-        return videoService.findById(id);
+    public Result detail(int id) {
+        Video video = videoService.findById(id);
+        return Result.success(video);
     }
 
-    @RequestMapping("save")
-    public Object save(String title) {
+    @RequestMapping("edit")
+    public Object edit(String title) {
         Video video = new Video();
-        video.setTitle(title);
-        return videoService.save(video);
+        video.setId(2);
+        video.setTitle("tetst");
+        return videoService.update(video);
     }
+
 }

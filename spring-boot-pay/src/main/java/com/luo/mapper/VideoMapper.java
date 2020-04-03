@@ -1,6 +1,7 @@
 package com.luo.mapper;
 
 import com.luo.domain.Video;
+import com.luo.provider.VideoProvider;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -12,7 +13,8 @@ public interface VideoMapper {
     @Select("select * from video where id = #{id}")
     Video findById(Integer id);
 
-    @Update("update  video set title = #{title} where id = #{id}")
+    @UpdateProvider(type = VideoProvider.class, method = "updateVideo")
+        //@Update("update  video set title = #{title} where id = #{id}")
     int update(Video video);
 
     @Delete("delete from  video where id = #{id}")
