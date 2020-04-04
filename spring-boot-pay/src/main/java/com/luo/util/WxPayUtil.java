@@ -163,5 +163,19 @@ public class WXPayUtil {
 
     }
 
+    public static SortedMap<String, String> getSortedMap(Map<String, String> params) {
+        SortedMap<String, String> sortedMap = new TreeMap<>();
+        Set<Map.Entry<String, String>> entries = params.entrySet();
+        Iterator<Map.Entry<String, String>> it = entries.iterator();
+        while (it.hasNext()) {
+            Map.Entry<String, String> entry = it.next();
+            String k = entry.getKey();
+            String v = entry.getValue();
+            if (v != null) {
+                sortedMap.put(k, v.trim());
+            }
+        }
+        return sortedMap;
+    }
 
 }

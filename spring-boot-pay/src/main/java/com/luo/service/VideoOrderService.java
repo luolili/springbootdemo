@@ -13,6 +13,8 @@ import com.luo.util.HttpUtil;
 import com.luo.util.WXPayUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.*;
@@ -45,6 +47,8 @@ public class VideoOrderService {
         return orderMapper.delete(id, userId);
     }
 
+    // 单 mysql 的事务
+    @Transactional(propagation = Propagation.REQUIRED)
     public String save(VideoOrderDto order) {
         Integer videoId = order.getVideoId();
         Integer userId = order.getUserId();
