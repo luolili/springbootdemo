@@ -9,15 +9,13 @@ import com.luo.mapper.UserMapper;
 import com.luo.mapper.VideoMapper;
 import com.luo.mapper.VideoOrderMapper;
 import com.luo.util.CommonUtil;
+import com.luo.util.HttpUtil;
 import com.luo.util.WXPayUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Date;
-import java.util.List;
-import java.util.SortedMap;
-import java.util.TreeMap;
+import java.util.*;
 
 @Slf4j
 @Service
@@ -47,7 +45,7 @@ public class VideoOrderService {
         return orderMapper.delete(id, userId);
     }
 
-    public int save(VideoOrderDto order) {
+    public String save(VideoOrderDto order) {
         Integer videoId = order.getVideoId();
         Integer userId = order.getUserId();
         Video video = videoMapper.findById(videoId);
@@ -74,9 +72,9 @@ public class VideoOrderService {
         //未支付
         videoOrder.setState(0);
         orderMapper.save(videoOrder);
-        unifyOrder(videoOrder);
+        String codeUrl = unifyOrder(videoOrder);
 
-        return orderMapper.save(order);
+        return codeUrl;
     }
 
     public String unifyOrder(VideoOrder order) {
@@ -95,14 +93,25 @@ public class VideoOrderService {
 
         String sign = WXPayUtil.createSign(params, wechatConfig.getKey());
         params.put("sign", sign);
+        String payXml = null;
         try {
-
-            String toXml = WXPayUtil.mapToXml(params);
+            payXml = WXPayUtil.mapToXml(params);
         } catch (Exception e) {
 
         }
-        // 统一下单
+        // 统一下单:调用微信接口,返回xml
+        String orderStr = HttpUtil.doPost(WechatConfig.UNIFY_ORDER_URL, payXml);
+        if (orderStr == null) {
+            return null;
+        }
+        String codeUrl = null;
+        Map<String, String> unifyOrderMap = new HashMap<>();
+        try {
+            unifyOrderMap = WXPayUtil.xmlToMap(orderStr);
+            codeUrl = unifyOrderMap.get("code_url");
+        } catch (Exception e) {
 
-        return "";
+        }
+        return codeUrl;
     }
 }

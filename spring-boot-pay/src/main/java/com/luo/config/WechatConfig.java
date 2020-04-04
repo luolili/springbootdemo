@@ -30,4 +30,5 @@ public class WechatConfig {
     public String mchId;
     @Value("${wxpay.callback}")
     public String callbackUrl;
+    public static final String UNIFY_ORDER_URL = "";
 }
