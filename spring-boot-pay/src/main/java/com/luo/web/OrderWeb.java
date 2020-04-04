@@ -64,7 +64,6 @@ public class OrderWeb {
             log.info("生成二维码失败");
         }
 
-
         return Result.success();
     }
 

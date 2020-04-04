@@ -114,4 +114,13 @@ public class VideoOrderService {
         }
         return codeUrl;
     }
+
+    public VideoOrder findByOutTradeNo(String outTradeNo) {
+        return orderMapper.findByOutTradeNo(outTradeNo);
+    }
+
+    public int updateState(VideoOrder order) {
+        return orderMapper.updateState(order);
+    }
+
 }
