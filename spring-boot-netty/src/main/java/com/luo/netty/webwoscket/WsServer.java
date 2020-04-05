@@ -41,6 +41,6 @@ public class WsServer {
 
     public void start() {
         channelFuture = serverBootstrap.bind(8080);
-        log.info("start");
+        log.info("netty start------");
     }
 }
